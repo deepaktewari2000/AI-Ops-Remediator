@@ -1,0 +1,8 @@
+__pycache__/
+.env
+*.pyc
+.AI-Ops-Remediator_env/
+/venv
+/migrations
+.DS_Store
+/*.zip

@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+kubernetes
+httpx
+slack-sdk
+requests
+python-dotenv
+google-generativeai

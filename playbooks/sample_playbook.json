@@ -1,0 +1,16 @@
+{
+  "id": "rb-001",
+  "description": "Restart worker pod on OOM",
+  "conditions": {
+    "k8s_event": "OOMKilled"
+  },
+  "actions": [
+    {
+      "type": "restart_pod",
+      "namespace": "default",
+      "selector": "app=worker"
+    }
+  ],
+  "tier": "tier-3",
+  "apply_if_confidence_gt": 0.8
+}

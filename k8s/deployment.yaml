@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: AI-Ops-Remediator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: AI-Ops-Remediator
+  template:
+    metadata:
+      labels:
+        app: AI-Ops-Remediator
+    spec:
+      containers:
+        - name: AI-Ops-Remediator
+          image: YOUR_REGISTRY/AI-Ops-Remediator:latest
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health/
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health/
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 20
