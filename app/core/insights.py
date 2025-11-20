@@ -35,10 +35,11 @@ platform called AI-Ops-Remediator. You analyze logs and propose safe, JSON-only 
   "root_cause": "<root cause>",
   "suggested_actions": [
      {{
-        "type": "<restart_pod | scale | delete_pod | throttle_traffic | reapply_config | ...>",
+        "type": "<restart_pod | scale_deployment>",
         "namespace": "<k8s namespace>",
-        "pod_name": "<pod or deployment name>",
-        "value": "<optional value>"
+        "pod_name": "<pod name (for restart)>",
+        "deployment_name": "<deployment name (for scale)>",
+        "value": "<replicas (int) for scale>"
      }}
   ],
   "confidence": 0.0 to 1.0
