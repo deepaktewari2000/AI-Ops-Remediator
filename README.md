@@ -22,11 +22,11 @@ AI-Ops-Remediator is an autonomous system that detects, analyzes, and fixes infr
 
 ```mermaid
 graph TD
-    A[Start] --> B{Source?}
-    B -- Active Monitor --> C[Poll K8s Logs]
+    A[Start] --> B{"Source?"}
+    B -- "Active Monitor" --> C[Poll K8s Logs]
     B -- Webhook --> D[Receive Alert]
     
-    C --> E{Error Found?}
+    C --> E{"Error Found?"}
     E -- Yes --> F[Create Incident]
     
     D --> F
@@ -35,14 +35,14 @@ graph TD
     G --> H[GenAI Analysis]
     H --> I[Detector Evaluate]
     
-    I --> J{AI Confidence > 0.8?}
-    J -- Yes --> K[Auto-Remediate (Scale/Restart)]
-    J -- No --> L{Severity?}
+    I --> J{"AI Confidence > 0.8?"}
+    J -- Yes --> K["Auto-Remediate (Scale/Restart)"]
+    J -- No --> L{"Severity?"}
     
-    L -- Tier-3 (Critical) --> K
-    L -- Tier-1/2 (Warning) --> M[Escalate]
+    L -- "Tier-3 (Critical)" --> K
+    L -- "Tier-1/2 (Warning)" --> M[Escalate]
     
-    K --> N{Success?}
+    K --> N{"Success?"}
     N -- Yes --> O[Resolve & Log]
     N -- No --> M
     
